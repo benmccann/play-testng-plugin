@@ -26,7 +26,7 @@ public class FakeApplicationFactoryImpl implements FakeApplicationFactory {
   }
 
   protected Application buildFromFakeApp(FakeApplicationFactoryArgs args) {
-    return new FakeApplication(args.getPath(), Helpers.class.getClassLoader(), args.getConfig(), args.getPlugins(), args.getGlobal().orElse(null));
+    return new FakeApplication(args.getPath(), Helpers.class.getClassLoader(), args.getConfig(), args.getGlobal().orElse(null));
   }
 
   protected Application buildFromBuilder(FakeApplicationFactoryArgs args) {

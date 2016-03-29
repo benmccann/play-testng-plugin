@@ -13,16 +13,18 @@ object NGPluginBuild extends Build {
     id = "play-testng-helpers",
     base = file("helpers"),
     settings = commonSettings ++ Seq(
+      scalaVersion := "2.11.8",
       libraryDependencies ++= Seq(
         "org.testng" % "testng" % "6.8.8", // % "provided"
-        "com.typesafe.play" %% "play-test" % "2.4.0", //% "provided"
-        "com.typesafe.play" %% "play-java" % "2.4.0" //% "provided"
+        "com.typesafe.play" %% "play-test" % "2.5.0", //% "provided"
+        "com.typesafe.play" %% "play-java" % "2.5.0" //% "provided"
       )))
 
   lazy val NGPlugin = Project(
     id = "play-plugins-testng",
     base = file("plugin"),
     settings = commonSettings ++ Seq(
+      scalaVersion := "2.10.6",
       sbtPlugin := true,
       libraryDependencies <++= (scalaBinaryVersion in update, sbtBinaryVersion in update) {
         case (scalaBinaryVersion, sbtBinaryVersion) => Seq(
@@ -34,7 +36,6 @@ object NGPluginBuild extends Build {
 
   lazy val commonSettings: Seq[Setting[_]] = Project.defaultSettings ++ Seq(
     organization := "com.linkedin.play-testng-plugin",
-    scalaVersion := "2.10.4",
     version := "2.4.2"
   )
 }

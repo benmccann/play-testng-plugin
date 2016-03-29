@@ -59,8 +59,6 @@ public class FakeApplicationFactoryImpl implements FakeApplicationFactory {
     return new FakeApplication(
         args.getPath(),
         Helpers.class.getClassLoader(),
-        Scala.toSeq(args.getPlugins()),
-        Scala.toSeq(Collections.<String>emptyList()),
         Scala.asScala(args.getConfig()),
         scala.Option.apply(args.getGlobal().orElse(null)),
         PartialFunction$.MODULE$.<Tuple2<String, String>, Handler>empty()
